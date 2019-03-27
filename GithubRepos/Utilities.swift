@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct URLS
+{
+    static let AppServerAddress = "https://api.github.com/search/repositories"
+}
+
 extension String
 {
     func convertToDictionary() -> [String: Any]?

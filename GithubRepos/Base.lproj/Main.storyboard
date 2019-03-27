@@ -39,11 +39,11 @@
             </objects>
             <point key="canvasLocation" x="1916" y="-376"/>
         </scene>
-        <!--Trendings-->
+        <!--Trending-->
         <scene sceneID="9cX-fs-fBO">
             <objects>
                 <navigationController id="cpg-Og-9gZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trendings" image="favorites" id="67A-mO-BIx"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="favorites" id="67A-mO-BIx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QFY-pk-taD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class TrendingViewController: UITableViewController {
 
-    var responseModel : GithubReposResponse?
+    var responseItems : Array<Item>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class TrendingViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         setupTableView()
-        getData()
+        getData(isLoadingMore: false)
     }
     
     func setupTableView()
@@ -40,8 +40,7 @@ class TrendingViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-
-        return self.responseModel?.items.count ?? 0
+        return responseItems?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -55,8 +54,9 @@ class TrendingViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingsCell", for: indexPath) as! TrendingsTableViewCell
+        cell.selectionStyle = .none
         
-        let repoInfo = self.responseModel?.items[indexPath.row]
+        let repoInfo = responseItems?[indexPath.row]
         cell.fillCell(repoInfo: repoInfo!)
 
         return cell

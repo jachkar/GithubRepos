@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
+  - PullToRefreshKit (0.8.8)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -7,20 +8,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - PullToRefreshKit
   - SDWebImage
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - PullToRefreshKit
     - SDWebImage
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 171f152c1007de5cf7600329866f1d0b47544771
+PODFILE CHECKSUM: a58e1271324bde9a31a46d5e153016018c8e6b1f
 
 COCOAPODS: 1.5.3

@@ -29,11 +29,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I85-e2-Oz9">
-                        <rect key="frame" x="20" y="45" width="382" height="96.5"/>
+                        <rect key="frame" x="20" y="45" width="382" height="91.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="KdE-5Z-Lkq"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -62,7 +62,7 @@
                     <constraint firstAttribute="trailing" secondItem="I85-e2-Oz9" secondAttribute="trailing" constant="20" id="ZUk-k1-6Pk"/>
                     <constraint firstItem="Wwe-F0-7bh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eRY-8B-30E"/>
                     <constraint firstItem="u2J-v1-UhO" firstAttribute="leading" secondItem="Dcc-lr-VJd" secondAttribute="trailing" constant="10" id="gH0-fz-eMt"/>
-                    <constraint firstItem="Dcc-lr-VJd" firstAttribute="top" secondItem="I85-e2-Oz9" secondAttribute="bottom" constant="5" id="qFO-ub-azJ"/>
+                    <constraint firstItem="Dcc-lr-VJd" firstAttribute="top" secondItem="I85-e2-Oz9" secondAttribute="bottom" constant="10" id="qFO-ub-azJ"/>
                     <constraint firstAttribute="bottom" secondItem="Dcc-lr-VJd" secondAttribute="bottom" constant="10" id="vqe-r0-EtH"/>
                 </constraints>
             </tableViewCellContentView>

@@ -13,6 +13,7 @@ struct GithubReposRequest: JSONCompatible {
     var order: String
     var sort: String
     var page: String
+    var perpage : String
 
     init?(json: [String: Any]?) {
         guard let json = json else {return nil}
@@ -20,6 +21,7 @@ struct GithubReposRequest: JSONCompatible {
         order = json["order"] as? String ?? ""
         sort = json["sort"] as? String ?? ""
         page = json["page"] as? String ?? ""
+        perpage = json["per page"] as? String ?? ""
     }
 
     init() {
@@ -32,11 +34,12 @@ struct GithubReposRequest: JSONCompatible {
         self.init(json: json)
     }
 
-    init(q: String, order: String, sort: String, page: String) {
+    init(q: String, order: String, sort: String, page: String, perpage: String) {
         self.q = q
         self.order = order
         self.sort = sort
         self.page = page
+        self.perpage = perpage
     }
 
     /// This function generate a json dictionary from the model.
@@ -48,6 +51,8 @@ struct GithubReposRequest: JSONCompatible {
         dict["order"] = order
         dict["sort"] = sort
         dict["page"] = page
+        dict["per_page"] = perpage
+
         return dict
     }
 }

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FCC6795F880BAAC14131D9CD00E2C4DE"
-               BlueprintName = "SVProgressHUD"
+               BlueprintIdentifier = "4B3A707977CBF3937CF40351BB1B1D7C"
+               BlueprintName = "PullToRefreshKit"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SVProgressHUD.framework">
+               BuildableName = "PullToRefreshKit.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

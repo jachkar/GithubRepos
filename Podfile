@@ -9,4 +9,5 @@ target 'GithubRepos' do
   pod 'Alamofire'
   pod 'SVProgressHUD'
   pod 'SDWebImage'
+  pod 'PullToRefreshKit'
 end

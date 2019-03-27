@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
+import PullToRefreshKit
 
 class HTTPRequest: NSObject
 {
@@ -59,11 +60,14 @@ class HTTPRequest: NSObject
  
  extension TrendingViewController
  {    
-    func getData()
+    func getData(isLoadingMore : Bool)
     {
-        SVProgressHUD.show()
+        if isLoadingMore == false
+        {
+            SVProgressHUD.show()
+        }
         
-        let urlString = "https://api.github.com/search/repositories"
+        let urlString = URLS.AppServerAddress
         
         //Get date 30 days ago
         let fromDate = Calendar.current.date(byAdding: .day, value: -30, to: Date())
@@ -76,7 +80,17 @@ class HTTPRequest: NSObject
         request.q = "created:>\(dateStr)"
         request.sort = "start"
         request.order = "desc"
-        request.page = "1"
+        request.perpage = "100" // In order to get 100 per page default returning 30
+        
+        if isLoadingMore == false
+        {
+            request.page =  "1"
+
+            SVProgressHUD.show()
+        } else {
+            let page = self.responseItems!.count/100 + 1
+            request.page = String(page)
+        }
         
         let httpRequest = HTTPRequest.init()
         httpRequest.GET(requestUrl: urlString, parameters: request.jsonDictionary(useOriginalJsonKey: true), success:{(response:Any)  in
@@ -86,19 +100,32 @@ class HTTPRequest: NSObject
                 
                 print("Github Repos "+"\(response)")
                 
-                self.responseModel = GithubReposResponse.init(json: response as? Dictionary)
-                if self.responseModel != nil
+                let responseModel = GithubReposResponse.init(json: response as? Dictionary)
+                if responseModel != nil
                 {
+                    if isLoadingMore == false
+                    {
+                        self.responseItems = responseModel?.items
+                        
+                        self.tableView.configRefreshFooter(container:self) { [weak self] in
+                            self!.getData(isLoadingMore: true)
+                        };
+                    }
+                    else
+                    {
+                        self.responseItems?.append(contentsOf: responseModel!.items)
+                        self.tableView.switchRefreshFooter(to: .normal)
+                    }
+                    
                     self.tableView.reloadData()
                 }
             }
             else
             {
-                //                Utilities.showMessage(message: Constants.Messages.ErrorMessage)
+                SVProgressHUD.dismiss()
             }
         }, failure: {() in
-            //            loader.hide()
-            //            Utilities.showMessage(message: Constants.Messages.ErrorMessage)
+            SVProgressHUD.dismiss()
         } )
     }
  }
