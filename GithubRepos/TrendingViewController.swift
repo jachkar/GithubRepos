@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 class TrendingViewController: UITableViewController {
+
+    var responseModel : GithubReposResponse?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,60 +20,15 @@ class TrendingViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setupTableView()
         getData()
     }
     
-    func getData()
+    func setupTableView()
     {
-        SVProgressHUD.show()
-        
-        let urlString = "https://api.github.com/search/repositories"
-        
-        var request = GithubReposRequest()
-        request.q = "created:>2017-10-22"
-        request.sort = "start"
-        request.order = "desc"
-        request.page = "1"
-
-        let httpRequest = HTTPRequest.init()
-        httpRequest.GET(requestUrl: urlString, parameters: request.jsonDictionary(useOriginalJsonKey: true), success:{(response:Any)  in
-            if response is NSDictionary
-            {
-                SVProgressHUD.dismiss()
-
-                print("Github Repos "+"\(response)")
-                
-//                loader.hide()
-//
-                let responseModel = GithubReposResponse.init(json: response as? Dictionary)
-
-                if responseModel != nil
-                {
-//                    if regResponse?.result == true
-//                    {
-//                        Utilities.showMessage(message:"Thank you for your feedback !")
-//
-//                        self.feedbackTxt.text = ""
-//                        self.phoneNumberTxt.text = ""
-//                    }
-//                    else
-//                    {
-//                        Utilities.showMessage(message: Constants.Messages.ErrorMessage)
-//                    }
-                }
-//                else
-//                {
-//                    Utilities.showMessage(message: Constants.Messages.ErrorMessage)
-//                }
-            }
-            else
-            {
-//                Utilities.showMessage(message: Constants.Messages.ErrorMessage)
-            }
-        }, failure: {() in
-//            loader.hide()
-//            Utilities.showMessage(message: Constants.Messages.ErrorMessage)
-        } )
+        self.tableView.register(UINib(nibName: "TrendingsTableViewCell", bundle: nil), forCellReuseIdentifier: "TrendingsCell")
+        self.tableView.tableFooterView = UIView()
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
 
     // MARK: - Table view data source
@@ -84,9 +40,27 @@ class TrendingViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
-    }
 
+        return self.responseModel?.items.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingsCell", for: indexPath) as! TrendingsTableViewCell
+        
+        let repoInfo = self.responseModel?.items[indexPath.row]
+        cell.fillCell(repoInfo: repoInfo!)
+
+        return cell
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

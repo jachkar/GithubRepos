@@ -10,34 +10,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trending-->
-        <scene sceneID="UcR-QQ-vIa">
+        <!--Trending Repos-->
+        <scene sceneID="yLi-wX-6HW">
             <objects>
-                <tableViewController title="Trending" id="wA4-Uc-SPV" customClass="TrendingViewController" customModule="GithubRepos" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnf-qk-wFF">
+                <tableViewController id="l8w-c3-cE5" customClass="TrendingViewController" customModule="GithubRepos" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KpR-uj-tqm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EV8-vf-iKx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="djf-4s-Trb">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EV8-vf-iKx" id="eSl-Om-kad">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="djf-4s-Trb" id="ZCJ-mh-Yb4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="wA4-Uc-SPV" id="f7M-cc-kAn"/>
-                            <outlet property="delegate" destination="wA4-Uc-SPV" id="Ybf-1J-j5c"/>
+                            <outlet property="dataSource" destination="l8w-c3-cE5" id="UXh-Ds-xZA"/>
+                            <outlet property="delegate" destination="l8w-c3-cE5" id="Jsi-xT-7nG"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Trendings" image="favorites" id="sCn-HY-rUj"/>
+                    <navigationItem key="navigationItem" title="Trending Repos" id="DT9-ce-MTk"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oZD-uT-iBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vR3-CQ-8YU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="-320"/>
+            <point key="canvasLocation" x="1916" y="-376"/>
+        </scene>
+        <!--Trendings-->
+        <scene sceneID="9cX-fs-fBO">
+            <objects>
+                <navigationController id="cpg-Og-9gZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trendings" image="favorites" id="67A-mO-BIx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QFY-pk-taD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="l8w-c3-cE5" kind="relationship" relationship="rootViewController" id="kY8-0N-yoc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YWb-XB-ruB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="-376"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ZbO-2a-eqG">
@@ -65,8 +82,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="wA4-Uc-SPV" kind="relationship" relationship="viewControllers" id="4pW-3q-Za9"/>
-                        <segue destination="1PT-AS-WaL" kind="relationship" relationship="viewControllers" id="nsK-xR-Ly5"/>
+                        <segue destination="cpg-Og-9gZ" kind="relationship" relationship="viewControllers" id="TG0-4f-nnx"/>
+                        <segue destination="1PT-AS-WaL" kind="relationship" relationship="viewControllers" id="LZ7-JL-MFk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

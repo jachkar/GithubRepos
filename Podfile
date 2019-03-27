@@ -8,4 +8,5 @@ target 'GithubRepos' do
   # Pods for GithubRepos
   pod 'Alamofire'
   pod 'SVProgressHUD'
+  pod 'SDWebImage'
 end
