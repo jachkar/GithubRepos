@@ -32,7 +32,7 @@ class TrendingsTableViewCell: UITableViewCell {
         self.repoNameLbl.text = repoInfo.name
         self.repoDescLbl.text = repoInfo.description
         self.ownerNameLbl.text = repoInfo.owner.login
-        self.userImage!.sd_setImage(with: NSURL.init(string: repoInfo.owner.avatar_url) as URL?, placeholderImage: nil)
+        self.userImage!.sd_setImage(with: NSURL.init(string: repoInfo.owner.avatar_url) as URL?, placeholderImage: #imageLiteral(resourceName: "placeholder"))
         
         self.starCountLbl.text = repoInfo.stargazers_count.roundCount
     }
