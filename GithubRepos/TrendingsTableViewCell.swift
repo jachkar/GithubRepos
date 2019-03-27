@@ -15,6 +15,7 @@ class TrendingsTableViewCell: UITableViewCell {
     @IBOutlet weak var repoDescLbl: UILabel!
     @IBOutlet weak var ownerNameLbl: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var starCountLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,5 +33,7 @@ class TrendingsTableViewCell: UITableViewCell {
         self.repoDescLbl.text = repoInfo.description
         self.ownerNameLbl.text = repoInfo.owner.login
         self.userImage!.sd_setImage(with: NSURL.init(string: repoInfo.owner.avatar_url) as URL?, placeholderImage: nil)
+        
+        self.starCountLbl.text = repoInfo.stargazers_count.roundCount
     }
 }
