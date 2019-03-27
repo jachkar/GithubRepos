@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class TrendingViewController: UITableViewController {
 
@@ -23,17 +24,22 @@ class TrendingViewController: UITableViewController {
     
     func getData()
     {
+        SVProgressHUD.show()
+        
         let urlString = "https://api.github.com/search/repositories"
         
         var request = GithubReposRequest()
         request.q = "created:>2017-10-22"
         request.sort = "start"
         request.order = "desc"
-        
+        request.page = "1"
+
         let httpRequest = HTTPRequest.init()
         httpRequest.GET(requestUrl: urlString, parameters: request.jsonDictionary(useOriginalJsonKey: true), success:{(response:Any)  in
             if response is NSDictionary
             {
+                SVProgressHUD.dismiss()
+
                 print("Github Repos "+"\(response)")
                 
 //                loader.hide()
@@ -73,12 +79,12 @@ class TrendingViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
 
     /*

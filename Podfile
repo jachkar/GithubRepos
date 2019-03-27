@@ -7,5 +7,5 @@ target 'GithubRepos' do
 
   # Pods for GithubRepos
   pod 'Alamofire'
-
+  pod 'SVProgressHUD'
 end

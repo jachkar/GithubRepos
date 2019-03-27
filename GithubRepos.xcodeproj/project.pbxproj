@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6237C4BD224BC27E00EFFE59 /* TrendingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6237C4BB224BC27E00EFFE59 /* TrendingsTableViewCell.swift */; };
+		6237C4BE224BC27E00EFFE59 /* TrendingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6237C4BC224BC27E00EFFE59 /* TrendingsTableViewCell.xib */; };
 		62D2F783224AB3E300A10CF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2F782224AB3E300A10CF4 /* AppDelegate.swift */; };
 		62D2F78A224AB3E300A10CF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D2F788224AB3E300A10CF4 /* Main.storyboard */; };
 		62D2F78C224AB3E500A10CF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D2F78B224AB3E500A10CF4 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		2FC8CC44819B163339783D42 /* Pods-GithubRepos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubRepos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubRepos/Pods-GithubRepos.debug.xcconfig"; sourceTree = "<group>"; };
 		378775874B41C87EC0DA72A4 /* Pods_GithubRepos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubRepos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6237C4BB224BC27E00EFFE59 /* TrendingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingsTableViewCell.swift; sourceTree = "<group>"; };
+		6237C4BC224BC27E00EFFE59 /* TrendingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingsTableViewCell.xib; sourceTree = "<group>"; };
 		62D2F77F224AB3E300A10CF4 /* GithubRepos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubRepos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D2F782224AB3E300A10CF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62D2F789224AB3E300A10CF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				62D2F796224AB4A300A10CF4 /* TrendingViewController.swift */,
 				62D2F798224AB4B300A10CF4 /* SettingsViewController.swift */,
 				62D2F79D224ABA8500A10CF4 /* Utilities.swift */,
+				6237C4BB224BC27E00EFFE59 /* TrendingsTableViewCell.swift */,
+				6237C4BC224BC27E00EFFE59 /* TrendingsTableViewCell.xib */,
 				62D2F788224AB3E300A10CF4 /* Main.storyboard */,
 				62D2F78B224AB3E500A10CF4 /* Assets.xcassets */,
 				62D2F78D224AB3E500A10CF4 /* LaunchScreen.storyboard */,
@@ -188,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6237C4BE224BC27E00EFFE59 /* TrendingsTableViewCell.xib in Resources */,
 				62D2F78F224AB3E500A10CF4 /* LaunchScreen.storyboard in Resources */,
 				62D2F78C224AB3E500A10CF4 /* Assets.xcassets in Resources */,
 				62D2F78A224AB3E300A10CF4 /* Main.storyboard in Resources */,
@@ -207,12 +214,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GithubRepos/Pods-GithubRepos-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -250,6 +259,7 @@
 			files = (
 				62D2F797224AB4A300A10CF4 /* TrendingViewController.swift in Sources */,
 				62D2F79C224AB90B00A10CF4 /* HTTPRequest.swift in Sources */,
+				6237C4BD224BC27E00EFFE59 /* TrendingsTableViewCell.swift in Sources */,
 				62D2F7A5224ABB8E00A10CF4 /* Owner.swift in Sources */,
 				62D2F783224AB3E300A10CF4 /* AppDelegate.swift in Sources */,
 				62D2F7A6224ABB8E00A10CF4 /* Item.swift in Sources */,

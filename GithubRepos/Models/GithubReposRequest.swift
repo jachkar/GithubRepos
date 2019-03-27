@@ -12,12 +12,14 @@ struct GithubReposRequest: JSONCompatible {
     var q: String
     var order: String
     var sort: String
+    var page: String
 
     init?(json: [String: Any]?) {
         guard let json = json else {return nil}
         q = json["q"] as? String ?? ""
         order = json["order"] as? String ?? ""
         sort = json["sort"] as? String ?? ""
+        page = json["page"] as? String ?? ""
     }
 
     init() {
@@ -30,10 +32,11 @@ struct GithubReposRequest: JSONCompatible {
         self.init(json: json)
     }
 
-    init(q: String, order: String, sort: String) {
+    init(q: String, order: String, sort: String, page: String) {
         self.q = q
         self.order = order
         self.sort = sort
+        self.page = page
     }
 
     /// This function generate a json dictionary from the model.
@@ -44,6 +47,7 @@ struct GithubReposRequest: JSONCompatible {
         dict["q"] = q
         dict["order"] = order
         dict["sort"] = sort
+        dict["page"] = page
         return dict
     }
 }
