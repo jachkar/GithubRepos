@@ -8,9 +8,27 @@
 
 import UIKit
 
-struct URLS
+let AppServerAddress = "https://api.github.com/search/repositories"
+
+var daysData : Array<String> = ["10","20","30","40","50","60"]
+var repoPerPageData : Array<String> = ["30","40","50","60","70","80","90","100"]
+var languagesData : Array<String> = ["All","Swift","Objective-C","JavaScript","Java","Python","PHP","C#","C++","HTML","C","CSS","TypeScript","Shell"]
+
+struct KEYS
 {
-    static let AppServerAddress = "https://api.github.com/search/repositories"
+    static let daysKey = "daysKey"
+    static let reposKey = "reposKey"
+    static let languagesKey = "languagesKey"
+}
+
+extension Date {
+    func formatDate() -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateStr = dateFormatter.string(from: self)
+        return dateStr
+    }
 }
 
 extension Int {
@@ -45,5 +63,11 @@ extension String
             }
         }
         return nil
+    }
+    
+    func getUserDefault() -> String
+    {
+        let value = UserDefaults.standard.object(forKey: self) as? String ?? ""
+        return value
     }
 }

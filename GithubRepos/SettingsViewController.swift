@@ -7,16 +7,74 @@
 //
 
 import UIKit
+import McPicker
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var reposPerPageBtn: UIButton!
+    @IBOutlet weak var languagesBtn: UIButton!
+    @IBOutlet weak var daysBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupBtn()
     }
     
-
+    func setupBtn() {
+        let days : String = "Days".getUserDefault()
+        let repos : String = "ReposPerPage".getUserDefault()
+        let languages : String = "Languages".getUserDefault()
+        
+        reposPerPageBtn.setTitle(repos, for: .normal)
+        languagesBtn.setTitle(languages, for: .normal)
+        daysBtn.setTitle(days, for: .normal)
+    }
+    
+    @IBAction func reposPerPageFnc(_ sender: Any) {
+        let button = sender as! UIButton
+        showPicker(forButton: button, withData: repoPerPageData)
+    }
+    
+    @IBAction func languagesFnc(_ sender: Any) {
+        let button = sender as! UIButton
+        showPicker(forButton: button, withData: languagesData)
+    }
+    
+    @IBAction func daysFnc(_ sender: Any) {
+        let button = sender as! UIButton
+        showPicker(forButton: button, withData: daysData)
+    }
+    
+    func showPicker(forButton : UIButton, withData : Array<String>) {
+        McPicker.show(data: [withData]) {  [weak self] (selections: [Int : String]) -> Void in
+            if let name = selections[0] {
+                forButton.setTitle(name, for: .normal)
+            }
+        }
+    }
+    
+    @IBAction func applyFnc(_ sender: Any) {
+        
+        //Save new params in order to get new data (Could be saved in CoreData)
+        UserDefaults.standard.set(daysBtn.titleLabel?.text, forKey: "Days")
+        UserDefaults.standard.set(reposPerPageBtn.titleLabel?.text, forKey: "ReposPerPage")
+        UserDefaults.standard.set(languagesBtn.titleLabel?.text, forKey: "Languages")
+    
+        UserDefaults.standard.synchronize()
+        
+        let trendingNav = self.tabBarController?.viewControllers![0] as! UINavigationController
+        
+        if let trendingVC : TrendingViewController = trendingNav.visibleViewController as? TrendingViewController
+        {
+            if trendingVC.isKind(of: TrendingViewController.self)
+            {
+                trendingVC.getData(isLoadingMore: false)
+                self.tabBarController?.selectedIndex = 0
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

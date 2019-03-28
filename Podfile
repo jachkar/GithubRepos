@@ -10,4 +10,5 @@ target 'GithubRepos' do
   pod 'SVProgressHUD'
   pod 'SDWebImage'
   pod 'PullToRefreshKit'
+  pod 'McPicker', '~> 2.0.0'
 end

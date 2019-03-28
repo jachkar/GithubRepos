@@ -13,10 +13,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupDefaultValues()
+        
         return true
+    }
+    
+    func setupDefaultValues()
+    {
+        //In order to save default values (Instead of CoreData being 3 values only)
+        if KEYS.daysKey.getUserDefault().isEmpty || KEYS.reposKey.getUserDefault().isEmpty || KEYS.languagesKey.getUserDefault().isEmpty
+        {
+            UserDefaults.standard.set("30", forKey: KEYS.daysKey)
+            UserDefaults.standard.set("100", forKey: KEYS.reposKey)
+            UserDefaults.standard.set("All", forKey: KEYS.languagesKey)
+            
+            UserDefaults.standard.synchronize()
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
