@@ -72,6 +72,9 @@ class SettingsViewController: UIViewController {
             {
                 trendingVC.getData(isLoadingMore: false)
                 self.tabBarController?.selectedIndex = 0
+                
+                let indexPath = IndexPath(row: 0, section: 0)
+                trendingVC.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
             }
         }
     }

@@ -22,7 +22,7 @@ extension TrendingViewController
         let languages = KEYS.languagesKey.getUserDefault()
         
         let valueDays = Int(days)
-        //Get date 30 days ago
+        //Get date 'valueDays' days ago
         let fromDate = Calendar.current.date(byAdding: .day, value: -valueDays!, to: Date())
         let dateStr = fromDate?.formatDate()
         
