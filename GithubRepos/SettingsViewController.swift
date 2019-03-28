@@ -23,9 +23,9 @@ class SettingsViewController: UIViewController {
     }
     
     func setupBtn() {
-        let days : String = "Days".getUserDefault()
-        let repos : String = "ReposPerPage".getUserDefault()
-        let languages : String = "Languages".getUserDefault()
+        let days : String =  KEYS.daysKey.getUserDefault()
+        let repos : String = KEYS.reposKey.getUserDefault()
+        let languages : String = KEYS.languagesKey.getUserDefault()
         
         reposPerPageBtn.setTitle(repos, for: .normal)
         languagesBtn.setTitle(languages, for: .normal)
@@ -58,9 +58,9 @@ class SettingsViewController: UIViewController {
     @IBAction func applyFnc(_ sender: Any) {
         
         //Save new params in order to get new data (Could be saved in CoreData)
-        UserDefaults.standard.set(daysBtn.titleLabel?.text, forKey: "Days")
-        UserDefaults.standard.set(reposPerPageBtn.titleLabel?.text, forKey: "ReposPerPage")
-        UserDefaults.standard.set(languagesBtn.titleLabel?.text, forKey: "Languages")
+        UserDefaults.standard.set(daysBtn.titleLabel?.text, forKey: KEYS.daysKey)
+        UserDefaults.standard.set(reposPerPageBtn.titleLabel?.text, forKey: KEYS.reposKey)
+        UserDefaults.standard.set(languagesBtn.titleLabel?.text, forKey: KEYS.languagesKey)
     
         UserDefaults.standard.synchronize()
         
