@@ -32,8 +32,7 @@ extension Int {
 
 extension String
 {
-    func convertToDictionary() -> [String: Any]?
-    {
+    func convertToDictionary() -> [String: Any]? {
         if let data = self.data(using: .utf8)
         {
             do

@@ -117,6 +117,11 @@ class HTTPRequest: NSObject
                         self.tableView.switchRefreshFooter(to: .normal)
                     }
                     
+                    if (responseModel?.items.count)! < 100
+                    {
+                        self.tableView.switchRefreshFooter(to: .removed)
+                    }
+                    
                     self.tableView.reloadData()
                 }
             }
