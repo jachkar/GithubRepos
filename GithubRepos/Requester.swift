@@ -10,13 +10,9 @@ import UIKit
 import SVProgressHUD
 import PullToRefreshKit
 
-extension TrendingViewController
-{
-    func getData(isLoadingMore : Bool) {
-        if isLoadingMore == false {
-            SVProgressHUD.show()
-        }
-        
+struct Requester {
+    
+    func fetchData(isLoadingMore: Bool, page: Int, complete: @escaping (Bool, GithubReposResponse?, String?, Bool) -> ()) {
         let days = KEYS.daysKey.getUserDefault()
         let repos = KEYS.reposKey.getUserDefault()
         let languages = KEYS.languagesKey.getUserDefault()
@@ -40,7 +36,6 @@ extension TrendingViewController
             request.page =  "1"
             SVProgressHUD.show()
         } else {
-            let page = self.responseItems!.count/Int(repos)! + 1
             request.page = String(page)
         }
         
@@ -58,37 +53,21 @@ extension TrendingViewController
                 let responseModel = GithubReposResponse.init(json: response as? Dictionary)
                 if responseModel != nil
                 {
+                    
                     if isLoadingMore == false
                     {
-                        self.responseItems = responseModel?.items
-                        
-                        self.tableView.configRefreshFooter(container:self) { [weak self] in
-                            self!.getData(isLoadingMore: true)
-                        };
+                        complete(true,responseModel!,nil,false)
+                    } else {
+                        complete(true,responseModel!,nil,true)
                     }
-                    else
-                    {
-                        self.responseItems?.append(contentsOf: responseModel!.items)
-                        self.tableView.switchRefreshFooter(to: .normal)
-                    }
-                    
-                    if (responseModel?.items.count)! < Int(repos)!
-                    {
-                        self.tableView.switchRefreshFooter(to: .removed)
-                    }
-                    
-                    self.tableView.reloadData()
                 }
             }
             else
             {
-                SVProgressHUD.dismiss()
-                self.tableView.switchRefreshFooter(to: .normal)
+                complete(false,nil,"An error has occured",false)
             }
         }, failure: {() in
-            SVProgressHUD.dismiss()
-            self.tableView.switchRefreshFooter(to: .normal)
+            complete(false,nil,"An error has occured",false)
         } )
     }
 }
-

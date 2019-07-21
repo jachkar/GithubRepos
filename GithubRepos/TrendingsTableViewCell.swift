@@ -28,12 +28,13 @@ class TrendingsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func fillCell(repoInfo : Item) {
-        self.repoNameLbl.text = repoInfo.name
-        self.repoDescLbl.text = repoInfo.description
-        self.ownerNameLbl.text = repoInfo.owner.login
-        self.userImage!.sd_setImage(with: NSURL.init(string: repoInfo.owner.avatar_url) as URL?, placeholderImage: #imageLiteral(resourceName: "placeholder"))
-        
-        self.starCountLbl.text = repoInfo.stargazers_count.roundCount
+    var trendingTableViewCellViewModel: TrendingTableViewCellViewModel? {
+        didSet {
+            self.repoNameLbl.text = trendingTableViewCellViewModel?.titleText
+            self.repoDescLbl.text = trendingTableViewCellViewModel?.descText
+            self.ownerNameLbl.text = trendingTableViewCellViewModel?.ownerText
+            self.userImage!.sd_setImage(with: NSURL.init(string: trendingTableViewCellViewModel!.imageUrl) as URL?, placeholderImage: #imageLiteral(resourceName: "placeholder"))
+            self.starCountLbl.text = trendingTableViewCellViewModel?.starCountText
+        }
     }
 }
