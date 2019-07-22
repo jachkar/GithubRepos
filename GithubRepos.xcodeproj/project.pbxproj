@@ -23,6 +23,7 @@
 		62D2F7A6224ABB8E00A10CF4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2F7A2224ABB8E00A10CF4 /* Item.swift */; };
 		62D2F7A7224ABB8E00A10CF4 /* GithubReposResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2F7A3224ABB8E00A10CF4 /* GithubReposResponse.swift */; };
 		62D2F7A9224ABDB000A10CF4 /* GithubReposRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D2F7A8224ABDB000A10CF4 /* GithubReposRequest.swift */; };
+		62D3ACAA22E4B8E50061DDAA /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3ACA922E4B8E50061DDAA /* TrendingViewModel.swift */; };
 		CF6329A627D9E342D6F51582 /* Pods_GithubRepos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378775874B41C87EC0DA72A4 /* Pods_GithubRepos.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		62D2F7A2224ABB8E00A10CF4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		62D2F7A3224ABB8E00A10CF4 /* GithubReposResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubReposResponse.swift; sourceTree = "<group>"; };
 		62D2F7A8224ABDB000A10CF4 /* GithubReposRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubReposRequest.swift; sourceTree = "<group>"; };
+		62D3ACA922E4B8E50061DDAA /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
 		9D4BF47868FECD4040DCF7AC /* Pods-GithubRepos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubRepos.release.xcconfig"; path = "Pods/Target Support Files/Pods-GithubRepos/Pods-GithubRepos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				62D2F79A224AB90B00A10CF4 /* HTTPRequest */,
 				62D2F782224AB3E300A10CF4 /* AppDelegate.swift */,
 				62D2F796224AB4A300A10CF4 /* TrendingViewController.swift */,
+				62D3ACA922E4B8E50061DDAA /* TrendingViewModel.swift */,
 				62D2F798224AB4B300A10CF4 /* SettingsViewController.swift */,
 				62D2F79D224ABA8500A10CF4 /* Utilities.swift */,
 				62636D95224CE845002BFEE8 /* Requester.swift */,
@@ -272,6 +275,7 @@
 				6237C4BD224BC27E00EFFE59 /* TrendingsTableViewCell.swift in Sources */,
 				62D2F7A5224ABB8E00A10CF4 /* Owner.swift in Sources */,
 				62D2F783224AB3E300A10CF4 /* AppDelegate.swift in Sources */,
+				62D3ACAA22E4B8E50061DDAA /* TrendingViewModel.swift in Sources */,
 				62D2F7A6224ABB8E00A10CF4 /* Item.swift in Sources */,
 				62D2F7A4224ABB8E00A10CF4 /* JSONCompatible.swift in Sources */,
 				62D2F79E224ABA8500A10CF4 /* Utilities.swift in Sources */,

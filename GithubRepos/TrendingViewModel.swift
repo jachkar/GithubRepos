@@ -35,6 +35,8 @@ class TrendingViewModel {
     }
     
     func fetchItems(isLoadingMore: Bool, page: Int) {
+        self.isLoading = true
+
         self.requester?.fetchData(isLoadingMore: isLoadingMore, page: page, complete: { (success, result, error, isLoadMore) in
             if let error = error {
                 self.error = error
